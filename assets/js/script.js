@@ -1,6 +1,5 @@
 // Variables declaration
 let price;
-let discount = false;
 const pricePerKm = 0.21;
 const numberKm = Number(
   prompt("Inserisci il numero di km che vuoi percorrere")
@@ -17,20 +16,14 @@ console.log("Il prezzo del biglietto non scontato è " + finalPrice + "€");
 
 //apply the discount
 if (age < 18) {
-  price = (price * 80) / 100;
-  discount = true;
-}
-
-if (age > 65) {
-  price = (price * 60) / 100;
-  discount = true;
-}
-
-// Print if discount doesn't apply at all
-if (discount == false) {
+  price = price - (price * 20) / 100;
+} else if (age > 65) {
+  price = price - (price * 40) / 100;
+} else {
   console.log("Non hai diritto ad alcuno sconto");
 }
 
 // Print final price
 finalPrice = price.toFixed(2);
 console.log("Il tuo prezzo finale è " + finalPrice + "€");
+alert("Il tuo prezzo finale è " + finalPrice + "€");
